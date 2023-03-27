@@ -1,0 +1,43 @@
+package com.example.groceryapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+
+public class Intro3Activity extends AppCompatActivity {
+
+    FrameLayout next;
+    TextView skip;
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_intro3);
+
+        next = findViewById(R.id.next);
+        skip = findViewById(R.id.skip);
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Intro3Activity.this,Intro4Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Intro3Activity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+}
